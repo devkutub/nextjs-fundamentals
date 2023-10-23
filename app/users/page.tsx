@@ -7,7 +7,11 @@ import UserTable from './UserTable';
 //     email: string;
 // }
 
-const UsersPage = async () => {
+interface Props {
+    searchParams: { sortOrder: string }
+}
+
+const UsersPage = async ({ searchParams: { sortOrder } }: Props) => {
     // // with only fetch and no others parameter next will consider this page as static generation, page will be generated at build time
     // const res = await fetch(
     //     "https://jsonplaceholder.typicode.com/users",
@@ -23,7 +27,7 @@ const UsersPage = async () => {
         <>
             <h1>Users</h1>
             <p>{new Date().toLocaleTimeString()}</p>
-            <UserTable />
+            <UserTable sortOrder={sortOrder} />
             {/* <table className='table table-zebra'>
                 <thead>
                     <tr>
