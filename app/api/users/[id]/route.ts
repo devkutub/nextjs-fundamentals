@@ -29,3 +29,15 @@ export async function PUT(
 
     return NextResponse.json({ id: 1, ...body });
 }
+
+export async function DELETE(
+    request: NextRequest,
+    { params }: { params: { id: number } }
+) {
+    // fetch the user from db
+    // if doesn't exist return 404
+    if (params.id > 10) return NextResponse.json({ error: 'user not found' }, { status: 404 });
+    // delete the user object
+    // return the deleted user data
+    return NextResponse.json({ id: 1 });
+}
