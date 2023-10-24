@@ -12,6 +12,11 @@ interface Props {
     sortOrder: string;
 }
 
+// All you need to know about Next Link
+// 1) Only downloads the content of the targe pages
+// 2) Pre-fetches links that are in the viewport
+// 3) Caches pages on the client
+
 const UserTable = async ({ sortOrder }: Props) => {
     // with only fetch and no others parameter next will consider this page as static generation, page will be generated at build time
     const res = await fetch(
