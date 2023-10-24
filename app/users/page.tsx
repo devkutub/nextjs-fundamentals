@@ -1,5 +1,6 @@
 import React from 'react';
 import UserTable from './UserTable';
+import Link from 'next/link';
 
 // interface User {
 //     id: number;
@@ -27,6 +28,7 @@ const UsersPage = async ({ searchParams: { sortOrder } }: Props) => {
         <>
             <h1>Users</h1>
             <p>{new Date().toLocaleTimeString()}</p>
+            <Link href="/users/new" className='btn'>new User</Link>
             <UserTable sortOrder={sortOrder} />
             {/* <table className='table table-zebra'>
                 <thead>
