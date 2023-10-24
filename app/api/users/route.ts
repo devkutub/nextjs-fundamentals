@@ -7,3 +7,12 @@ export function GET(request: NextRequest) {
         { id: 2, name: "Reshma" },
     ])
 }
+
+export async function POST(request: NextRequest) {
+    const body = await request.json();
+    // validate
+    // if not valid return 400
+    // else return data
+    if (!body.name) return NextResponse.json({ error: "Name is required" }, { status: 400 });
+    return NextResponse.json({ id: 1, ...body }, { status: 201 });
+}
