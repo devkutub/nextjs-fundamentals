@@ -14,7 +14,10 @@ const Navbar: FunctionComponent<NavbarProps> = () => {
             <Link href="/users">users</Link>
             <Link href="/admin">Admins</Link>
             <div className="flex-grow"></div>
-            {status === "authenticated" && <div>{session.user?.name}</div>}
+            {status === "authenticated" && <div>
+                {session.user?.name}
+                <Link href='api/auth/signout' className="ml-3">Sign Out</Link>
+            </div>}
             {status === "unauthenticated" && <Link href="/api/auth/signin">LogIn</Link>}
         </nav>
     );
