@@ -15,6 +15,11 @@ const UploadWidgetPage: FunctionComponent<UploadWidgetPageProps> = () => {
             {publicId && <CldImage src={publicId} width={270} height={180} alt="fragrance" />}
             <CldUploadWidget
                 uploadPreset="wxmopopt"
+                options={{
+                    sources: ['local', 'camera'],
+                    multiple: true,
+                    cropping: true
+                }}
                 onUpload={(result) => {
                     const info = result.info as CloudinaryResult;
                     if (info.public_id) setPublicId(info.public_id);
