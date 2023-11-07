@@ -1,0 +1,34 @@
+import { CSSProperties, FunctionComponent } from "react";
+import { Html, Body, Container, Text, Link, Preview, Tailwind } from "@react-email/components";
+
+interface WelcomeTemplateProps {
+    name: string
+}
+
+const WelcomeTemplate: FunctionComponent<WelcomeTemplateProps> = ({ name }) => {
+    return (
+        <Html>
+            <Preview>Hello abroad!</Preview>
+            <Tailwind>
+                <Body className="bg-lime-50">
+                    {/* <Body style={body}> */}
+                    <Container>
+                        <Text className="font-bold text-3xl">Hello {name}</Text>
+                        {/* <Text style={heading}>Hello {name}</Text> */}
+                        <Link href="https://codewithmosh.com">www.codewithmosh.com</Link>
+                    </Container>
+                </Body>
+            </Tailwind>
+        </Html>
+    );
+};
+
+const body: CSSProperties = {
+    background: "#fff"
+};
+
+const heading: CSSProperties = {
+    fontSize: "32px"
+};
+
+export default WelcomeTemplate;
