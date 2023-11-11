@@ -5,6 +5,7 @@ import Navbar from './Navbar'
 import { Suspense } from 'react'
 import Loading from './loading'
 import AuthProvider from './auth/Provider'
+import GoogleAnalyticsScript from './GoogleAnalyticsScript'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -20,6 +21,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" data-theme="valentine">
+      <GoogleAnalyticsScript />
       <body className={inter.className}>
         <AuthProvider>
           <Navbar />
