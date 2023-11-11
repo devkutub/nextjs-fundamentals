@@ -1,4 +1,13 @@
+import { Metadata } from 'next'
 import React from 'react'
+
+export async function generateMetadata(): Promise<Metadata> {
+    // const product = await fetch("...");
+    return {
+        title: "Product Page with dynamic metadata",
+        description: "List of products/ individual product page"
+    }
+}
 
 interface Props {
     params: { slug: string[] },

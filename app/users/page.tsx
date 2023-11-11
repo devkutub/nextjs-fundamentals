@@ -1,6 +1,12 @@
 import React, { Suspense } from 'react';
 import UserTable from './UserTable';
 import Link from 'next/link';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'Users Page',
+    description: 'List of all users',
+}
 
 // interface User {
 //     id: number;
