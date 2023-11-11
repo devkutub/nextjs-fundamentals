@@ -11,7 +11,7 @@ export async function GET(
     // else return data
     const user = await prisma.user.findUnique({
         where: {
-            id: parseInt(params.id)
+            id: params.id
         }
     });
 
@@ -37,12 +37,12 @@ export async function PUT(
     // if (!body.name) return NextResponse.json({ error: "Name os required" }, { status: 400 });
     // fetch the user from db
     // if doesn't exist return 404
-    const user = await prisma.user.findUnique({ where: { id: parseInt(params.id) } });
+    const user = await prisma.user.findUnique({ where: { id: params.id } });
     if (!user) return NextResponse.json({ error: 'user not found' }, { status: 404 });
     // if (params.id > 10) return NextResponse.json({ error: 'user not found' }, { status: 404 });
     // update the user object
     const updatedUser = await prisma.user.update({
-        where: { id: parseInt(params.id) },
+        where: { id: params.id },
         data: {
             name: body.name,
             email: body.email
@@ -59,13 +59,13 @@ export async function DELETE(
     { params }: { params: { id: string } }
 ) {
     // fetch the user from db
-    const user = await prisma.user.findUnique({ where: { id: parseInt(params.id) } });
+    const user = await prisma.user.findUnique({ where: { id: params.id } });
 
     // if doesn't exist return 404
     if (!user) return NextResponse.json({ error: 'user not found' }, { status: 404 });
     // if (params.id > 10) return NextResponse.json({ error: 'user not found' }, { status: 404 });
     // delete the user object
-    const deletedUser = await prisma.user.delete({ where: { id: parseInt(params.id) } });
+    const deletedUser = await prisma.user.delete({ where: { id: params.id } });
     // return the deleted user data
     return NextResponse.json(deletedUser);
     // return NextResponse.json({ id: 1 });
