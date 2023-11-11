@@ -10,6 +10,7 @@ export default async function Home() {
   return (
     <main>
       <h1>Hey {session && <span>{session.user?.name}</span>}</h1>
+      {/* <h1 className="font-poppins">Hey {session && <span>{session.user?.name}</span>}</h1> */}
       <Link href="/users">Go to users page</Link>
       <ProductCard />
       <div>
@@ -19,9 +20,9 @@ export default async function Home() {
         <Image
           src="https://bit.ly/react-cover"
           alt="fragrance"
-          // width={300}
-          // height={150}
-          fill // to make it responsive
+          width={300}
+          height={150}
+          // fill // to make it responsive
           // style={{
           //   objectFit: "cover",
           //   // objectFit: "contain"
